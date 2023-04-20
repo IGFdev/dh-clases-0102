@@ -1,49 +1,47 @@
-@import url('/fonts/Oswald-Bold.ttf');
-/* 
-h1 {
-    color: blue;
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
-    font-size: large;
-    text-align: center;
-    width: 500px;
-    height: 500px;
-    background-color: #54ffe080;
-} */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
 
 .titulo {
-    color: aqua;
-}
-
-.fondo-gris {
-    background-color: gray;
-}
-
-#edad-input {
-    background-color: coral;
-}
-
-#circulo{
-    width: 250px;
-    height: 300px;
-    background-color: darkslategrey;
-    border-radius: 50%;
-}
-
-#login-btn {
-    width: 20px;
-    height: 20px;
-}
-
-article{
-    text-align: center;
-}
-
-#boton-especial{
-    margin-bottom: 50px;
-    margin-right: 55px;
-    margin-left: 57px;
+    width: 80vw;
+    height: 50vh;
+    border: 1px solid black;
     padding: 25px;
+    display: inline-block;
+    box-sizing: border-box;
+}
 
-    border: 3px dashed green;
+.container {
+    width: 100vw;
+    border: 2px solid orangered;
+}
+
+.container-2 {
+    width: 75%;
+    border: 1px solid blue;
+}
+
+.video-container{
+    width: 90vw;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.video-container img{
+    width: 50%;
+}
+
+@media (min-width: 480px){
+    .video-container {
+        width: 45vw;
+    }
+}
+
+@media (min-width: 769px){
+    .video-container {
+        width: 30vw;
+    }
 }
