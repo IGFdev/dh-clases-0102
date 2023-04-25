@@ -24,24 +24,46 @@ body {
 }
 
 .video-container{
-    width: 90vw;
-    text-align: center;
     display: inline-block;
     box-sizing: border-box;
 }
 
 .video-container img{
-    width: 50%;
+    width: 200px;
 }
 
-@media (min-width: 480px){
-    .video-container {
-        width: 45vw;
-    }
+.videos-wrapper {
+    display: flex;
+    height: 50vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-@media (min-width: 769px){
-    .video-container {
-        width: 30vw;
-    }
+.searchbar {
+    margin: 25px;
+    width: 25vw;
+    border-radius: 12px;
+    border: 1px solid #9d9d9d;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchbar input{
+    width: 85%;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #9d9d9d;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.searchbar i{
+    width: 10%;
 }
