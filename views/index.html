@@ -16,35 +16,65 @@
 
 <body>
 
-  <!-- <div class="container"> 
-    <h1 class="titulo">Soy un título!</h1>
-
-    <div class="container-2">
-      <h1 class="titulo">Soy otro h1</h1>
+  <form action="/registrar" method="GET">
+    <div class="grupo-input">
+      <label for="nombre">Nombre:</label>
+      <input type="text" placeholder="Ej: Ignacio" name="nombre" id="nombre">
     </div>
-  </div> -->
 
-  <div class="searchbar">
-    <input type="text">
-    <button>
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-  </div>
+    <div class="grupo-input">
+      <label for="apellido">Apellido:</label>
+      <input type="text" name="apellido" id="apellido">
+    </div>
 
-  <div class="videos-wrapper">
-    <article class="video-container">
-      <img src="/imgs/fondo.png" alt="">
-    </article>
-    <article class="video-container">
-      <img src="/imgs/fondo.png" alt="">
-    </article>
-    <article class="video-container">
-      <img src="/imgs/fondo.png" alt="">
-    </article>
-    <article class="video-container">
-      <img src="/imgs/fondo.png" alt="">
-    </article>
-  </div>
+    <div class="grupo-input">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre">
+    </div>
+
+    <div class="grupo-input">
+      <label for="apellido">Apellido:</label>
+      <input type="text" name="apellido" id="apellido">
+    </div>
+
+    <div class="grupo-input">
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre">
+    </div>
+
+    <div class="grupo-input">
+      <label for="apellido">Apellido</label>
+      <input type="text" name="apellido" id="apellido">
+    </div>
+
+
+    <div class="grupo-input">
+      <select name="color" id="color">
+        <option value="#fff">Blanco</option>
+        <option value="#000">Negro</option>
+      </select>
+    </div>
+
+    <div class="grupo-input">
+      <label for="">Hombre</label><input type="radio" name="genero" id="hombre" value="hombre">
+      <label for="">Mujer</label><input type="radio" name="genero" id="mujer" value="mujer">
+      <label for="">Otro</label><input type="radio" name="genero" id="otro" value="otro">
+    </div>
+
+    <label for="">Mantener sesión iniciada</label>
+    <input type="checkbox">
+    <br>
+
+    
+    <input type="submit" value="Registrar">
+    <input type="reset">
+
+    <input type="date" name="">
+    
+    <button type="button">Validar mis datos</button>
+  </form>
+
+  <a href="https://www.google.com">Link a una página</a>
 
 </body>
 

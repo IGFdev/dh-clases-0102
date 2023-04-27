@@ -67,3 +67,23 @@ body {
 .searchbar i{
     width: 10%;
 }
+
+.grupo-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 28vw;
+    margin-bottom: 10px;
+}
+
+input:focus{
+    background-color: burlywood;
+}
+
+input:hover{
+    background-color: aquamarine;
+}
+
+a:visited{
+    color: rgb(0, 255, 60);
+}
