@@ -1,15 +1,25 @@
 {
-  "name": "html-clase1",
+  "name": "repositorio-dh-0123",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "npx nodemon app"
+    "start": "node app",
+    "dev": "npx nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IGFdev/dh-clases-0102.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IGFdev/dh-clases-0102/issues"
+  },
+  "homepage": "https://github.com/IGFdev/dh-clases-0102#readme",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.18.2"
   }
 }

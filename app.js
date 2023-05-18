@@ -1,16 +1,24 @@
 const express = require('express');
 const path = require('path');
 
+const mainRoutes = require('./routes/mainRoutes');
+const productRoutes = require('./routes/productRoutes');
+
 const app = express();
+
+app.set('view engine', 'ejs');
+
+app.set('views', [
+    path.join(__dirname, './views/main'),
+    path.join(__dirname, './views/products')
+]);
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    const rutaCompleta = path.join(__dirname, './views/index.html');
+app.use(mainRoutes);
+app.use('/products', productRoutes);
 
-    res.sendFile(rutaCompleta);
-});
 
 app.listen(3000, () => {
-    console.log('Servidor escuchando en el puerto 3000 🚀');
+    console.log('Servidor escuchando en el puerto http://localhost:3000');
 });
