@@ -6,25 +6,17 @@
 </head>
 
 <body>
+    <a href="/products/create">Crear un nuevo producto!</a>
 
     <% productos.forEach(producto => { %>
         <article>
-            <img src="<%= producto.img %>" alt="">
-            <h1><%= producto.name %></h1>
-            <h1><%= producto.icon %></h1>
+            <h1><%= producto.title %></h1>
             <p><%= producto.price %></p>
+            <a href="/products/<%= producto.id %>/detail"><button>Ver detalles del producto</button></a>
             <br>
         </article>
     <% }) %>
 
-    <% %>
-    <%= %>
-
-    <ul>
-        <% productos.forEach(producto => { %>
-            <li><%= producto.id %></li>
-        <% }) %>
-    </ul>
 
 </body>
 </html>

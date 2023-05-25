@@ -2,10 +2,22 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head') %>
+  <%- include('../partials/head') %>
 </head>
 
 <body>
-    <h1>Detalle</h1>
+  <h1>Detalles del producto <%= product.id %></h1>
+
+  <h2>Nombre: <%= product.title %></h2>
+  <h2>Precio: <%= product.price %></h2>
+
+  <form action="/products/<%= product.id %>/delete?_method=delete" method="post">
+    <input type="submit" value="Eliminar producto"></input>
+  </form>
+  <br>
+  <a href="/products/<%= product.id %>/update">
+    <button>Editar producto</button>
+  </a>
 </body>
+
 </html>
