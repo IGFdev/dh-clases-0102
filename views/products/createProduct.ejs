@@ -8,13 +8,17 @@
 </head>
 <body>
     
-    <form action="/products" method="post">
+    <form action="/products" method="post" enctype="multipart/form-data">
         <label for="">Nombre</label>
         <input type="text" name="title" id="">
         <br>
         <br>
         <label for="">Precio</label>
         <input type="number" name="price" id="">
+        <br>
+        <br>
+        <label for="img">Imagen</label>
+        <input type="file" multiple accept=".jpg, .jpeg, .png" name="img" id="img">
 
         <input type="submit">
     </form>

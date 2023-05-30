@@ -1,26 +1,11 @@
 const path = require('path');
 
-let productos = [
-    {
-        id: 1,
-        title: 'Licuadora',
-        price: 4500
-    },
-    {
-        id: 2,
-        title: 'Tostadora',
-        price: 4501
-    },
-    {
-        id: 3,
-        title: 'Heladera',
-        price: 4502
-    }
-];
+const productModel = require('../models/product');
 
 const controllers = {
     // @GET /products 
     getProducts: (req, res) => {
+        const productos = productModel.findAll();
 
         res.render('productList', {
             title: 'Productos',
@@ -32,7 +17,7 @@ const controllers = {
     getUpdate: (req, res) => {
         const id = Number(req.params.id);
 
-        const productoAModificar = productos.find(productoActual => productoActual.id === id);
+        const productoAModificar = productModel.findById(id)
 
         if (!productoAModificar) {
             // Con el return detenemos la ejecución del controller, y con el res.send enviamos un mensaje de error
@@ -49,7 +34,7 @@ const controllers = {
         const id = Number(req.params.id);
 
         // Buscamos en el array de productos, el producto cuyo ID coincida con el que nos enviaron por params
-        const productoAMostrar = productos.find(productoActual => productoActual.id === id);
+        const productoAMostrar = productModel.findById(id);
 
         // Si el producto no se encuentra (su id es inválido)
         if (!productoAMostrar) {
@@ -66,9 +51,7 @@ const controllers = {
     deleteProduct: (req, res) => {
         const id = Number(req.params.id);
 
-        const nuevosProductos = productos.filter(productoActual => productoActual.id !== id);
-
-        productos = nuevosProductos;
+        productModel.deleteById(id);
 
         res.redirect('/products');
     },
@@ -77,17 +60,7 @@ const controllers = {
         const id = Number(req.params.id);
         const nuevosDatos = req.body;
 
-        console.log(nuevosDatos)
-
-        // Con el find, buscamos el objeto cuyo id sea el indicado por params
-        const productoAActualizar = productos.find(productoActual => productoActual.id === id);
-
-        // Con el indexOf, buscamos el índice en el cual se encuentra el objeto entero del producto a modificar
-        const indice = productos.indexOf(productoAActualizar);
-
-        // Actualizamos los datos en el indice correspondiente del array, con los datos que nos pasaron en el formulario del update
-        productos[indice].title = nuevosDatos.title;
-        productos[indice].price = nuevosDatos.price;
+        productModel.updateById(id, nuevosDatos);
 
         res.redirect('/products');
     },
@@ -106,9 +79,13 @@ const controllers = {
     postProduct: (req, res) => {
         let datos = req.body;
 
-        datos.id = productos.length + 1;
+        console.log(req.files)
 
-        productos.push(datos);
+        datos.price = Number(datos.price);
+        /* datos.img = '/imgs/products/' + req.file.filename; */
+        datos.imgs = req.files.map(file => '/imgs/products' + file.filename);
+
+        productModel.createOne(datos);
 
         res.redirect('/products');
     }

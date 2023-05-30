@@ -13,6 +13,7 @@
             <h1><%= producto.title %></h1>
             <p><%= producto.price %></p>
             <a href="/products/<%= producto.id %>/detail"><button>Ver detalles del producto</button></a>
+            <img src="<%= producto.img %>" alt="">
             <br>
         </article>
     <% }) %>

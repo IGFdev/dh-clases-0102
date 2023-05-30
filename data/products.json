@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "title": "Licuadora",
+        "price": 4500,
+        "imgs": "/imgs/products/1685411440279-image_2023-05-29_224733676.png"
+    },
+    {
+        "id": 3,
+        "title": "Tostadora",
+        "price": 45000,
+        "imgs": "/imgs/products/1685411440279-image_2023-05-29_224733676.png"
+    },
+    {
+        "id": 4,
+        "title": "Celular",
+        "price": 15000,
+        "imgs": "/imgs/products/1685411440279-image_2023-05-29_224733676.png"
+    },
+    {
+        "title": "asdf",
+        "price": 123,
+        "id": 5,
+        "imgs": "/imgs/products/1685411440279-image_2023-05-29_224733676.png"
+    },
+    {
+        "title": "Cualquier cosa",
+        "price": 5656,
+        "imgs": "/imgs/products/1685412082943-gallery3.jpg",
+        "id": 6
+    },
+    {
+        "title": "Ruleta",
+        "price": 123123123,
+        "imgs": "/imgs/products/1685412189685-image_2023-05-29_230308644.png",
+        "id": 7
+    },
+    {
+        "title": "asdf",
+        "price": 234123,
+        "id": 8,
+        "imgs": ["/imgs/products1685412462179-gallery3.jpg"]
+    },
+    {
+        "title": "asdf",
+        "price": 234123,
+        "imgs": [
+            "/imgs/products1685412462179-gallery3.jpg",
+            "/imgs/products1685412462181-Estructuras.jpg",
+            "/imgs/products1685412462192-gallery2.jpg"
+        ],
+        "id": 9
+    }
+]
