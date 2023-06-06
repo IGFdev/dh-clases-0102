@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const multer = require('multer');
+const validationMiddlewares = require('../middlewares/validations');
 
 const productControllers = require('../controllers/productControllers');
 
@@ -19,18 +20,25 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+const pepitoware = (req, res, next) => {
+    console.log('Se usó la ruta!!!');
+    next();
+}
+
+
+
 
 // @GET /products 
 router.get('/', productControllers.getProducts);
 
 // @POST /products
-router.post('/', upload.any('img'), productControllers.postProduct);
+router.post('/', [upload.any('img'), validationMiddlewares.validateCreateProduct], productControllers.postProduct);
 
 // @GET /products/create
 router.get('/create', productControllers.getCreate);
 
 // @GET /products/:id/detail ---> /products/5/detail
-router.get('/:id/detail', productControllers.getProductDetail);
+router.get('/:id/detail', pepitoware, productControllers.getProductDetail);
 
 // @DELETE /products/:id/delete ---> /products/5/delete
 router.delete('/:id/delete', productControllers.deleteProduct);

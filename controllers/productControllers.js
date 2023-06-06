@@ -1,4 +1,5 @@
 const path = require('path');
+const expressValidator = require('express-validator');
 
 const productModel = require('../models/product');
 
@@ -6,6 +7,10 @@ const controllers = {
     // @GET /products 
     getProducts: (req, res) => {
         const productos = productModel.findAll();
+
+        //     localhost:3000/products?nombre=nacho&apellido=garcia
+
+        console.log(req.query.nombre);
 
         res.render('productList', {
             title: 'Productos',
@@ -72,14 +77,18 @@ const controllers = {
 
     // @GET /products/create
     getCreate: (req, res) => {
-        res.render('createProduct');
+        res.render('createProduct', { errors: [], values: {} });
     },
 
     // @POST /products
     postProduct: (req, res) => {
-        let datos = req.body;
+        const validation = expressValidator.validationResult(req);
 
-        console.log(req.files)
+        if(validation.errors.length > 0){
+            return res.render('createProduct', { errors: validation.errors, values: req.body });
+        }
+
+        let datos = req.body;
 
         datos.price = Number(datos.price);
         /* datos.img = '/imgs/products/' + req.file.filename; */
