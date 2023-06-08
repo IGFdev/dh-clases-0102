@@ -1,0 +1,26 @@
+[
+    {
+        "email": "ASDF@SDAFSDF",
+        "username": "asdf",
+        "password": "asdfasdf",
+        "id": 1
+    },
+    {
+        "email": "pepito@SDAFSDF",
+        "username": "Pepito",
+        "password": "12345",
+        "id": "eed75f9b-06fb-421f-9f8f-622bd1a36cd9"
+    },
+    {
+        "email": "nacho@gmail.com",
+        "username": "nacho",
+        "password": "$2b$12$r1l2SLu0/JVLT4kTABWPwuXMQM4zQDrDZcHB4GnFg.Z7/g56wWEaq",
+        "id": "5a8a3ad3-546d-4099-a924-5ab801252b16"
+    },
+    {
+        "email": "nacho2@gmail.com",
+        "username": "nacho2",
+        "password": "$2b$12$M18BBMZBZZ6rPdWVY/BytuBIiTB.dFcpTVNS9seKHf6OQUCdhqjOu",
+        "id": "cd1712b3-358b-4b3a-96cc-3f1a1d9072e5"
+    }
+]

@@ -5,9 +5,20 @@
   <%- include('../partials/head') %>
 
   <link rel="stylesheet" href="/css/styles.css">
+
+  <% if (userData.username) { %>
+    <form action="/users/sign-out" method="get">
+      <input type="submit" value="cerrar sesión">
+    </form>
+  <% } %>
 </head>
 
 <body>
+  <nav>
+    <h1><%= userData.username %></h1>
+    <h1><%= userData.email %></h1>
+  </nav>
+
   <h1>Estás viendo código HTML</h1>
 
   <img src="/imgs/imagen.jpg" alt="">
