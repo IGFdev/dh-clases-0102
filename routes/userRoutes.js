@@ -1,5 +1,6 @@
 const express = require('express');
 const controllers = require('../controllers/userControllers');
+const middlewares = require('../middlewares/authMiddlewares');
 
 const router = express.Router();
 
@@ -7,13 +8,13 @@ const router = express.Router();
 router.get('/sign-out', controllers.signOut);
 
 // @GET - /users/register
-router.get('/register', controllers.getRegister);
+router.get('/register', middlewares.allowUnsignedIn, controllers.getRegister, );
 
 // @POST - /users
 router.post('/', controllers.registerUser);
 
 // @GET - /users/login
-router.get('/login', controllers.getLogin);
+router.get('/login', middlewares.allowUnsignedIn, controllers.getLogin);
 
 // @POST - /users/login
 router.post('/login', controllers.loginUser);

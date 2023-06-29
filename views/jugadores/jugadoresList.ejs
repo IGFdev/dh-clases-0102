@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="form-container">
+    <form method="POST" action="/jugadores">
+      <input name="nombre" placeholder="nombre" />
+      <input name="apellido" placeholder="apellido" />
+      <input name="club" placeholder="club" type="number" />
+      <input type="submit" value="Enviar" />
+    </form>
+  </div>
+
+  <h1>Listado de todos los jugadores:</h1>
+
+  <ul>
+    <% jugadores.forEach(jugador => { %>
+        <li><%= jugador.nombre %> <%= jugador.apellido %></li>
+    <% }) %>
+  </ul>
+
+</body>
+
+</html>

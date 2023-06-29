@@ -5,10 +5,12 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const { Club, Jugador } = require('./database/models');
 
 const mainRoutes = require('./routes/mainRoutes');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const jugadorRoutes = require('./routes/jugadorRoutes');
 
 const app = express();
 
@@ -17,17 +19,23 @@ app.set('view engine', 'ejs');
 app.set('views', [
     path.join(__dirname, './views/main'),
     path.join(__dirname, './views/products'),
-    path.join(__dirname, './views/users')
+    path.join(__dirname, './views/users'),
+    path.join(__dirname, './views/jugadores'),
 ]);
 
-// --- Middlewares ---
+/* --- Middlewares --- */
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
 app.use(cookieParser());
-app.use(expressSession({ secret: 'este es mi secreto monito123' }));
+
+app.use(expressSession({
+    secret: 'este es mi secreto monito123',
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use((req, res, next) => {
     const ruta = req.originalUrl + '\n';
@@ -36,8 +44,8 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    if(req.cookies.email){
-        const userModel = require('./models/user');
+    if (req.cookies.email) {
+        const userModel = require('./models/User');
 
         const user = userModel.findByEmail(req.cookies.email);
 
@@ -54,7 +62,10 @@ app.use((req, res, next) => {
 app.use(mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
+app.use('/jugadores', jugadorRoutes)
 
+
+/* --- 404 --- */
 app.use((req, res) => {
     res.render('404');
 })
@@ -64,12 +75,21 @@ app.listen(3000, () => {
 });
 
 
-// Manejamos la creación de usuarios con el modelo
-//      - Hasheo de contraseña
-//      - Ids con uuid.v4()
-// Mantener sesión iniciada
-//      - Crear cookie al iniciar sesión
-//      - Guardar en session el usuario al iniciar sesión
-//      - Volver a guardar en sessión el usuario cuando la cookie existe
-// Cerrar sesión
-//      - Formulario con ruta para cerrar sesión
+/* 
+    - Inicializamos sequelize
+        - .sequelizerc
+        - sequelize init
+        
+    - Creación de modelos
+
+    - Aplicar los modelos en los controllers
+        - Model.create
+        - Model.findAll
+            - where
+            - raw
+        - Model.findByPk
+        - Model.findOne
+            - where
+        - Model.update
+        - Model.destroy
+*/

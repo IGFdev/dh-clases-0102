@@ -11,13 +11,18 @@
   <h2>Nombre: <%= product.title %></h2>
   <h2>Precio: <%= product.price %></h2>
 
-  <form action="/products/<%= product.id %>/delete?_method=delete" method="post">
-    <input type="submit" value="Eliminar producto"></input>
-  </form>
-  <br>
-  <a href="/products/<%= product.id %>/update">
-    <button>Editar producto</button>
-  </a>
+  <%# if (user.id === product.user_id) { %>
+
+  <% if (user.type === 'admin') { %>
+    <form action="/products/<%= product.id %>/delete?_method=delete" method="post">
+      <input type="submit" value="Eliminar producto"></input>
+    </form>
+    <br>
+    <a href="/products/<%= product.id %>/update">
+      <button>Editar producto</button>
+    </a>
+  <% } %>
+
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 const path = require('path');
 const expressValidator = require('express-validator');
 
-const productModel = require('../models/product');
+const productModel = require('../models/Product');
 
 const controllers = {
     // @GET /products 
@@ -49,7 +49,7 @@ const controllers = {
         }
 
         // Renderizamos la vista productDetail, y le pasamos los datos del producto solicitado
-        res.render('productDetail', { title: 'Detalle', product: productoAMostrar });
+        res.render('productDetail', { title: 'Detalle', product: productoAMostrar, user: req.session.user });
     },
 
     // @DELETE /products/:id/delete

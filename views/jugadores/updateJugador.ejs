@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form method="POST" action="/jugadores?_method=PUT">
+    <input type="hidden" name="id" value="<%= jugador.id %>">
+    <label for="">nombre</label>
+    <input name="nombre" placeholder="nombre" value="<%= jugador.nombre %>" />
+    <br>
+    <label for="">apellido</label>
+    <input name="apellido" placeholder="apellido" value="<%= jugador.apellido %>" />
+    <br>
+    <label for="">club_id</label>
+    <input name="club" placeholder="club" type="number" value="<%= jugador.club_id %>" />
+    <br>
+    <input type="submit" value="Enviar" />
+  </form>
+
+</body>
+
+</html>

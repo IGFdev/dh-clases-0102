@@ -1,11 +1,11 @@
-const userModel = require('../models/user.js');
+const userModel = require('../models/User.js');
 const bcrypt = require('bcrypt');
 
 const controllers = {
     signOut: (req, res) => {
         res.clearCookie('email');
 
-        req.session.user = {};
+        delete req.session.user;
 
         res.redirect('/users/login');
     },
