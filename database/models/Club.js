@@ -25,5 +25,20 @@ module.exports = (sequelize, DataType) => {
 
     const Club = sequelize.define(alias, cols, config);
 
+    Club.associate = (models) => {
+
+        Club.hasMany(models.Jugador, {
+            as: 'club',
+            timestamps: false,
+            foreignKey: 'club_id'
+        });
+
+        Club.belongsToMany(models.Sponsor, {
+            as: 'sponsor-club',
+            foreignKey: 'club_id',
+            through: 'SponsorClub'
+        });
+    }
+
     return Club;
 }

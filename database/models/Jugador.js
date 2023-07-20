@@ -30,7 +30,16 @@ module.exports = (sequelize, DataType) => {
         timestamps: false
     }
 
+
     const Jugador = sequelize.define(alias, cols, config);
+
+    Jugador.associate = models => {
+        Jugador.belongsTo(models.Club, {
+            as: 'club',
+            timestamps: false,
+            foreignKey: 'club_id'
+        });
+    }
 
     return Jugador;
 }

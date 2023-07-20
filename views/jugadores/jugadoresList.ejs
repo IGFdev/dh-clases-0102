@@ -22,7 +22,7 @@
 
   <ul>
     <% jugadores.forEach(jugador => { %>
-        <li><%= jugador.nombre %> <%= jugador.apellido %></li>
+        <li><%= jugador.nombre %> <%= jugador.apellido %>  -  <%= jugador.club.nombre %></li>
     <% }) %>
   </ul>
 

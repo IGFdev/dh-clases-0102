@@ -3,25 +3,40 @@
 
 <head>
   <%- include('../partials/head') %>
-
   <link rel="stylesheet" href="/css/styles.css">
-
-  <% if (userData.username) { %>
-    <form action="/users/sign-out" method="get">
-      <input type="submit" value="cerrar sesión">
-    </form>
-  <% } %>
 </head>
 
 <body>
+
+  <% if (userData.username) { %>
+  <form action="/users/sign-out" method="get">
+    <input type="submit" value="cerrar sesión">
+  </form>
+  <% } %>
+
   <nav>
     <h1><%= userData.username %></h1>
     <h1><%= userData.email %></h1>
   </nav>
 
-  <h1>Estás viendo código HTML</h1>
+  <h1 id="titular">Estás viendo código HTML</h1>
 
   <img src="/imgs/imagen.jpg" alt="">
+
+  <ul id="paises">
+    <li class="pais">Arg</li>
+    <li class="pais">Fr</li>
+    <li class="pais">Co</li>
+    <li class="pais">Mx</li>
+  </ul>
+
+
+  <div id="caja" class="prueba">
+    Este es el texto que le corresponde al div
+    <h2 id="subtitulo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis, illum cupiditate atque dolorem saepe accusantium sed nam molestias aut corporis accusamus at, ad laudantium nobis quia. Distinctio excepturi nesciunt dolores?</h2>
+  </div>
+
+  <script src="/js/app.js"></script>
 </body>
 
 </html>

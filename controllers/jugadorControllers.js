@@ -21,8 +21,10 @@ const controllers = {
     listForm: async (req, res) => {
         try {
             const jugadores = await Jugador.findAll({
-                raw: true
-            });
+                raw: true,
+                include: 'club',
+                nest: true
+            });            
 
             res.render('jugadoresList', { jugadores });
         } catch (error) {

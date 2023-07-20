@@ -11,6 +11,8 @@ const mainRoutes = require('./routes/mainRoutes');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 const jugadorRoutes = require('./routes/jugadorRoutes');
+const clubRoutes = require('./routes/clubRoutes');
+const apiJugadorRoutes = require('./routes/api/jugadoresRoutes');
 
 const app = express();
 
@@ -63,6 +65,8 @@ app.use(mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 app.use('/jugadores', jugadorRoutes)
+app.use('/clubes', clubRoutes);
+app.use('/api/jugadores', apiJugadorRoutes)
 
 
 /* --- 404 --- */
@@ -76,20 +80,9 @@ app.listen(3000, () => {
 
 
 /* 
-    - Inicializamos sequelize
-        - .sequelizerc
-        - sequelize init
-        
-    - Creación de modelos
-
-    - Aplicar los modelos en los controllers
-        - Model.create
-        - Model.findAll
-            - where
-            - raw
-        - Model.findByPk
-        - Model.findOne
-            - where
-        - Model.update
-        - Model.destroy
+    Una API REST es una API que devuelve JSONs
+        Comunica servidor y cliente
+        Uno hace una solicitud y el otro la responde con JSON
+        Se comunican mediante endpoints (las diferentes rutas), y podemos especificar el pedido mediante queryString en cada endpoint
+        Para usarlas, sí o sí, hay que ver la documentación previamente
 */
