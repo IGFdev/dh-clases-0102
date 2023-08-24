@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <ul>
+    <% errors.forEach(errorActual => { %>
+    <li><%= errorActual.msg %></li>
+    <% }) %>
+  </ul>
+
+  <form action="/products" method="post" enctype="multipart/form-data">
+    <% if (errors.find(error => error.path === 'title')) { %>
+        <label style="color: red;" for="">Nombre</label>
+    <% }  else {%>
+        <label for="">Nombre</label>
+    <% }  %>
+
+    <input type="text" value="<%= values.title %>" name="title" id="">
+    <br>
+    <br>
+    <% if (errors.find(error => error.path === 'price')) { %>
+        <label style="color: red;" for="">Precio</label>
+    <% }  else {%>
+        <label for="">Precio</label>
+    <% }  %>
+    <input type="number" value="<%= values.price %>" name="price" id="">
+    <br>
+    <br>
+    <label for="img">Imagen</label>
+    <input type="file" multiple accept=".jpg, .jpeg, .png" name="img" id="img">
+
+    <input type="submit">
+
+    <script src="/js/createForm.js"></script>
+  </form>
+
+</body>
+
+</html>

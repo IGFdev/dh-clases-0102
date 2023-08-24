@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Registar un nuevo usuario</h1>
+
+  <ul id="errors">
+
+  </ul>
+
+  <form action="/users" method="post">
+    <div>
+      <label for="">Email</label>
+      <input name="email" id="email" type="email">
+      <p class="error" style="color: red;"></p>
+    </div>
+    <br>
+    <div>
+      <label for="">Username</label>
+      <input name="username" id="username" type="text">
+      <p class="error" style="color: red;"></p>
+    </div>
+    <br>
+    <div>
+      <label for="">Password</label>
+      <input name="password" id="password" type="password">
+      <p class="error" style="color: red;"></p>
+    </div>
+    <br>
+    <input type="submit" disabled id="submit-btn" value="Registrarme">
+  </form>
+
+  <script src="/js/registerForm.js"></script>
+</body>
+
+</html>

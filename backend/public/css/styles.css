@@ -1,0 +1,16 @@
+.prueba {
+    color: red;
+}
+
+#caja {
+    width: 250px;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 150;
+    background-color: whitesmoke;
+    border-radius: 12px;
+    padding: 7px;
+    box-shadow: 8px 10px 27px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 8px 10px 27px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 8px 10px 27px -4px rgba(0, 0, 0, 0.75);
+}
